@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Login = () => {
   const [f_userName, setUsername] = useState('');
@@ -26,7 +26,9 @@ const Login = () => {
   };
 
   return (
+    <>
     <div className="h-screen flex justify-center items-center bg-gray-100">
+      <div>
       <form onSubmit={handleLogin} className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-96">
         <h2 className="text-center text-2xl font-bold mb-5">Login</h2>
         <div className="mb-4">
@@ -64,7 +66,16 @@ const Login = () => {
           </button>
         </div>
       </form>
+      <span className='text-semibold text-2xl mr-auto'>Don't Have an account?<Link to='/signup'><button
+            className=" text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Signup
+          </button></Link></span>
+      </div> 
     </div>
+    
+    </>
+    
   );
 };
 

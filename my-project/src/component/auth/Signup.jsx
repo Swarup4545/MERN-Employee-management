@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const Signup = () => {
   const [f_userName, setUsername] = useState('');
   const [f_Pwd, setPassword] = useState('');
+  const Navigate=useNavigate();
   
 
   const handleSignup = async (e) => {
@@ -12,6 +14,10 @@ const Signup = () => {
     try {
       const data = await axios.post('http://localhost:8000/api/signup', { f_userName, f_Pwd });
       console.log('Signup successful', data);
+      if(data){
+        Navigate("/");
+      }
+
     } catch (err) {
       console.log(err);
       alert('Signup failed');

@@ -13,7 +13,7 @@ const Dashboard = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
  
-    navigate('/login');
+    navigate('/');
   };
 
   return (
